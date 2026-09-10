@@ -1,0 +1,30 @@
+Hadoop Version: 3.2.4
+Java Version: 1.8.0_411
+Project Directory: /twitter
+
+1. Format NameNode
+hdfs namenode -format
+
+2. Start Hadoop daemons
+cd \hadoop\sbin
+start-all.cmd
+
+3. Verify daemons
+jps
+
+4. Create HDFS directory for dataset
+hdfs dfs -mkdir /twitter
+
+5. Upload Kaggle dataset (tweets.csv) into HDFS
+hdfs dfs -copyFromLocal "C:/Users/MY PC/Desktop/LabFinal/tweets.csv" /twitter
+
+6. Check uploaded files
+hdfs dfs -ls /twitter
+
+10. View MapReduce output
+hdfs dfs -cat /twitter_output/part-r-00000
+
+11. View Pig script outputs
+hdfs dfs -cat /pig_output/sentiment_counts/part-r-00000
+hdfs dfs -cat /pig_output/sorted_tweets/part-r-00000
+hdfs dfs -cat /pig_output/joined_data/part-r-00000
